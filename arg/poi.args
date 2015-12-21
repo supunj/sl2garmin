@@ -1,0 +1,16 @@
+family-id: 6325
+product-id: 1
+keep-going
+transparent
+country-name: Sri_Lanka
+country-abbr: SL
+region-name: South_Asia
+region-abbr: SA
+draw-priority: 8
+family-name: Sri_Lanka_POI
+area-name: Sri_Lanka
+code-page: 1252
+lower-case
+remove-ovm-work-files
+no-tdbfile
+style: poi_default

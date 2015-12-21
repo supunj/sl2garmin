@@ -1,0 +1,39 @@
+[_line]
+Type=0x20
+UseOrientation=N
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#996633
+Xpm="32 1 2 1"
+"0 c #996633"
+"1 c none"
+"01110111011101110111011101110111"
+[end]
+
+[_line]
+Type=0x21
+UseOrientation=N
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#996633
+Xpm="32 1 2 1"
+"0 c #996633"
+"1 c none"
+"01010101010101010101010101010101"
+[end]
+
+[_line]
+Type=0x22
+UseOrientation=N
+ExtendedLabels=Y
+FontStyle=SmallFont
+CustomColor=Day
+DaycustomColor:#996633
+Xpm="32 1 2 1"
+"0 c #996633"
+"1 c none"
+"01010101010101010101010101010101"
+[end]
+

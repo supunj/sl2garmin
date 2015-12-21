@@ -1,0 +1,387 @@
+# -------------------------------------------------------------------
+# this is the mkgmap style file for converting osm ways
+# into garmin lines.
+# any line prefaced with # is a comment and will not be applied.
+# each line is a rule, of the generalised format:
+#  osm_tag(s)_to_match  [garmin_type_code resolution]
+# see http://wiki.openstreetmap.org/wiki/mkgmap/help/style_rules
+# and http://wiki.openstreetmap.org/wiki/mkgmap/help/custom_styles
+# for more information.
+mkgmap:country!=* & mkgmap:admin_level2=* { set mkgmap:country='${mkgmap:admin_level2}' }
+mkgmap:country!=* & addr:country=* { set mkgmap:country='${addr:country}' }
+mkgmap:country!=* & is_in:country=* { set mkgmap:country='${is_in:country}' }
+
+# country specific rules first
+
+# Netherlands = NLD
+mkgmap:country=NLD & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
+mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
+mkgmap:country=NLD & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
+
+# Germany = DEU cities
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level6=* { set mkgmap:city='${mkgmap:admin_level6}' } 
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
+mkgmap:country=DEU & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
+
+
+# other european countries
+mkgmap:country=AUT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=BEL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=CZE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
+mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=DNK & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
+mkgmap:country=FIN & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
+mkgmap:country=FIN & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
+mkgmap:country=FRA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=ISL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=ITA & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=LUX & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=NOR & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
+mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
+mkgmap:country=POL & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=PRT & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
+mkgmap:country=PRT & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=SVN & mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' }
+mkgmap:country=ESP & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' }
+mkgmap:country=SWE & mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' }
+mkgmap:country=CHE & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+ 
+# Canda
+mkgmap:country=CAN & mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' }
+mkgmap:country=CAN & mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' }
+  
+# common rules for all the rest of countries
+mkgmap:region!=* & mkgmap:admin_level6=* { set mkgmap:region='${mkgmap:admin_level6}' } 
+mkgmap:region!=* & mkgmap:admin_level5=* { set mkgmap:region='${mkgmap:admin_level5}' } 
+mkgmap:region!=* & mkgmap:admin_level4=* { set mkgmap:region='${mkgmap:admin_level4}' } 
+mkgmap:region!=* & mkgmap:admin_level3=* { set mkgmap:region='${mkgmap:admin_level3}' } 
+mkgmap:region!=* & is_in:county=* { set mkgmap:region='${is_in:county}' } 
+
+mkgmap:city!=* & mkgmap:admin_level8=* { set mkgmap:city='${mkgmap:admin_level8}' } 
+mkgmap:city!=* & mkgmap:admin_level7=* { set mkgmap:city='${mkgmap:admin_level7}' } 
+mkgmap:city!=* & mkgmap:admin_level9=* { set mkgmap:city='${mkgmap:admin_level9}' } 
+mkgmap:city!=* & mkgmap:admin_level10=* { set mkgmap:city='${mkgmap:admin_level10}' } 
+mkgmap:city!=* & is_in:city=* { set mkgmap:city='${is_in:city}' }
+mkgmap:city!=* & addr:city=* { set mkgmap:city='${addr:city}' }
+
+mkgmap:postal_code!=* & mkgmap:postcode=* { set mkgmap:postal_code='${mkgmap:postcode}' } 
+mkgmap:postal_code!=* & addr:postcode=* { set mkgmap:postal_code='${addr:postcode}' } 
+
+mkgmap:street!=* & addr:street=* { set mkgmap:street='${addr:street}' }
+mkgmap:street!=* & addr:housename=* { set mkgmap:street='${addr:housename}' }
+
+mkgmap:housenumber!=* & addr:housenumber=* { set mkgmap:housenumber='${addr:housenumber}' }
+
+mkgmap:phone!=* & phone=* { set mkgmap:phone='${phone}' }
+mkgmap:phone!=* & contact:phone=* { add mkgmap:phone='${contact:phone}' }
+
+mkgmap:is_in!=* & is_in=* { set mkgmap:is_in='${is_in}' }
+
+ 
+(highway=residential|highway=unclassified|highway=tertiary|highway=secondary|highway=access|service=parking_aisle) &  (oneway=-1)   [0x10601 resolution 24 continue]
+
+# set highway names to include the reference if there is one
+highway=motorway {name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-symbol:hbox}' | '${name}' }
+highway=trunk {name '${ref|highway-symbol:hbox} ${name}' | '${ref|highway-symbol:hbox}' | '${name}' }
+highway=primary {name '${ref|highway-symbol:box} ${name}' | '${ref|highway-symbol:box}' | '${name}' }
+highway=secondary {name '${ref|highway-symbol:oval} ${name}' | '${ref|highway-symbol:oval}' | '${name}' }
+highway=* {name '${ref} ${name}' | '${ref}' | '${name}' }
+highway=* & tunnel=*      [0x12 road_class=2 road_speed=3 resolution 24 ]
+highway=path    [0x0e road_class=0 road_speed=1 resolution 24 continue]
+highway=path & bridge=yes  [0x11001   resolution 24]
+# convert generic path to most specific
+highway=path & bicycle=designated {set highway=cycleway }
+#highway=path & bridleway {set highway=bridleway }
+highway=path & foot=designated {set highway=footway }
+highway=* & access=private [0x19  resolution 24]
+# convert links to generic ways
+highway=motorway_link {set highway=motorway}
+highway=trunk_link {set highway=trunk}
+highway=primary_link {set highway=primary}
+highway=secondary_link {set highway=secondary}
+
+# set similar ways
+ 
+#(highway=minor | highway=residential) {set highway=unclassified}
+highway=proposed {set highway=construction}
+(railway=abandoned | railway=construction) {set railway=disused}
+(railway=funicular | railway=light_rail) {set railway=narrow_gauge}
+
+# roundabouts
+ 
+junction=roundabout & highway=trunk    [0x02 road_class=3 road_speed=1 resolution 24]
+junction=roundabout & highway=primary    [0x03 road_class=3 road_speed=1 resolution 24]
+junction=roundabout & highway=secondary    [0x04 road_class=2 road_speed=1 resolution 24]
+junction=roundabout & highway=tertiary    [0x05 road_class=1 road_speed=1 resolution 24]
+junction=roundabout & highway=unclassified   [0x06 road_class=1 road_speed=1 resolution 24]
+junction=roundabout [0x06 road_class=1 road_speed=1 resolution 24]
+power=line [0x29 resolution 24]
+
+railway=narrow_gauge [0x30 resolution 24]
+railway=rail [0x14 resolution 12 continue]
+railway=rail & bridge=yes [0x11001 resolution 24]
+railway=disused [0x35 resolution 24 ]
+railway=subway [0x2f resolution 24 ]
+railway=tram [0x32 resolution 24 ]
+railway=platform [0x11702  resolution 24 continue ]
+railway=platform [0x12 road_class=0 road_speed=1  resolution 24  ]
+highway=unclassified & bridge=yes [0x11001 resolution 24 continue]
+highway=unclassified [0x06 road_class=1 road_speed=3 resolution 22 ]
+highway=motorway    [0x01 road_class=4 road_speed=7 resolution 14 continue]
+highway=motorway    & bridge=yes [0x11401 resolution 16 ]
+highway=trunk    [0x02 road_class=4 road_speed=7 resolution 16 continue]
+highway=trunk & bridge=yes [0x11401 resolution 16 continue]
+
+#highway=unclassified  & bridge=yes  [0x11401c]
+
+
+highway=* & motorroad=yes    [0x02 road_class=3 road_speed=1 resolution 16]
+highway=primary    [0x03 road_class=3 road_speed=1 resolution 19 continue]
+highway=primary   & bridge=yes [0x11401 resolution 24]
+highway=secondary    [0x04 road_class=2 road_speed=1 resolution 19 continue]
+highway=secondary  & bridge=yes [0x11401 resolution 24]
+highway=tertiary    [0x05 road_class=1 road_speed=1 resolution 20]
+
+highway=pedestrian  [0x0d road_class=0 road_speed=3 resolution 24 continue]
+highway=pedestrian & area!=yes [0x6 road_class=0 road_speed=0 resolution 24 continue]
+highway=living_street     [0x06 road_class=0 road_speed=1 resolution 24]
+highway=residential  & bridge=yes  [0x11401   resolution 24 continue]
+
+
+highway=residential    [0x06 road_class=0 road_speed=3 resolution 24]
+
+highway=service    [0x07 road_class=0 road_speed=1 resolution 24 continue]
+highway=service & bridge=yes   [0x11401  resolution 24]
+ 
+
+
+highway=cycleway [0x10 road_class=0 road_speed=1 resolution 24 continue ]
+highway=cycleway & bridge=yes [0x11001 resolution 24]
+highway=bridleway    [0x11 road_class=0 road_speed=1 resolution 24]
+highway=footway    [0x16 road_class=0 road_speed=3 resolution 24 continue]
+highway=footway  & bridge=yes   [0x11001  resolution 24]
+highway=steps    [0x13 road_class=0 road_speed=3 resolution 24]
+highway=track    [0x0f road_class=0 road_speed=3 resolution 24 continue]
+highway=track    & bridge=yes   [0x11001  resolution 24]
+tracktype=grade1 [0x15 road_class=0 road_speed=3 resolution 24]
+tracktype=grade2 [0x10102  resolution 24]
+tracktype=grade3 [0x10103   resolution 24]
+tracktype=grade4 [0x10104   resolution 24]
+highway=unsurfaced    [0x0a road_class=0 road_speed=3 resolution 24]
+highway=road    [0x00 road_class=1 road_speed=2 resolution 24]
+highway=pipeline    [0x1161f resolution 24]
+highway=construction    [0x11619 resolution 24]
+ 
+ aeroway=runway [0x27 resolution 24]
+aeroway=taxiway [0x2d resolution 24]
+route=ferry [0x1a road_class=0 road_speed=1 resolution 18]
+barrier=hedge  [0x25 resolution 24]
+barrier=wall  [0x10507 resolution 24]
+barrier=city_wall  [0x10508 resolution 24]
+natural=cliff [0x28 resolution 24]
+waterway=canal [0x26 resolution 24]
+waterway=drain | waterway=stream [0x24 resolution 24]
+waterway=river [0x11f00 resolution 18-22 continue]
+waterway=river [0x1f resolution 23-24 ]
+man_made=pier [0x33 resolution 24 continue]
+man_made=pier[0x12 road_class=0 road_speed=1  resolution 24  ]
+ 
+ 
+man_made=groyne | man_made=breakwater  [0x10611 resolution 24]
+man_made=embankment [0x34 resolution 24]
+aerialway=chair_lift | aerialway=drag_lift [0x12 road_class=0 road_speed=1 resolution 24]
+highway=raceway    [0x11618 resolution 24 continue]
+highway=raceway [0x12 road_class=0 road_speed=1  resolution 24  ]
+# the following boundary styles are after the highway rules because ways
+# are frequently tagged with both and we want the highway to take priority.
+boundary=administrative
+{ name
+  '${left:country}/${right:country}' |
+  '${left:state}/${right:state}' |
+  '${left:district}/${right:district}' |
+  '${left:county}/${right:county}' |
+  '${left:municipality}/${right:municipality}' |
+  '${left:city}/${right:city}' |
+  '${left:village}/${right:village}' |
+  '${left:suburban}/${right:suburban}'
+}
+#boundary=administrative & admin_level=2 [0x1e resolution 18]
+#boundary=administrative & admin_level=6 [0x1d resolution 24]
+#boundary=administrative [0x1c resolution 24]
+#boundary=national [0x1e resolution 24]
+
+# Contours take their name from the elevation setting
+contour_ext=elevation_minor & ele>0
+	{ name '${ele|conv:m=>ft}'; }
+	[0x20 resolution 24]
+contour_ext=elevation_medium & ele>20
+	{ name '${ele|conv:m=>ft}'; }
+	[0x21 resolution 24]
+contour_ext=elevation_major & ele>50	{ name '${ele|conv:m=>ft}'; }
+	[0x22 resolution 24]
+contour_ext=elevation & ele>100	{ name '${ele|conv:m=>ft}'; }
+	[0x21 resolution 24]
+
+(natural=wood | landuse=forest | leisure=golf_course | sport=* | amenity=grave_yard | landuse=cemetary| boundary = national_park)   [0x11002  resolution 24 continue ]
+
+
+
+#include 'inc/water_lines';
+#include 'inc/contour_lines';
+
+<finalize>
+# The finalizer section is executed for each element when a rule with an element type matches
+
+include 'inc/address';
+# calculate the road speed based on maxspeed tag
+include 'inc/roadspeed'; 
+# calculate the access rules
+include 'inc/access';
+
+name=* { name '${name}' }
+
+highway=* & ref=* { addlabel '${ref}' }
+highway=* & int_ref=* { addlabel '${int_ref}' }
+highway=* & nat_ref=* { addlabel '${nat_ref}' }
+highway=* & reg_ref=* { addlabel '${reg_ref}' }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

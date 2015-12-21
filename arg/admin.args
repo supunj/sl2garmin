@@ -1,0 +1,15 @@
+family-id: 6325
+product-id: 1
+keep-going
+draw-priority: 3
+transparent
+country-name: Sri_Lanka
+country-abbr: SL
+region-name: South_Asia
+region-abbr: SA
+family-name: Sri_Lanka_Districts
+area-name: Sri_Lanka
+code-page: 1252
+lower-case
+remove-ovm-work-files
+no-tdbfile

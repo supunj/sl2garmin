@@ -1,0 +1,31 @@
+family-id: 6325
+product-id: 1
+keep-going
+transparent
+reduce-point-density: 4
+reduce-point-density-polygon: 0
+add-pois-to-lines
+add-pois-to-areas
+route
+drive-on-left
+country-name: Sri_Lanka
+country-abbr: SL
+region-name: South_Asia
+region-abbr: SA
+draw-priority: 4
+family-name: Sri_Lanka_Routes_OSM
+area-name: Sri_Lanka
+code-page: 1252
+road-name-pois
+adjust-turn-headings
+road-name-pois
+lower-case
+location-autofill: is_in,nearest
+housenumbers
+remove-ovm-work-files
+poi-address
+no-tdbfile
+link-pois-to-ways
+process-destination
+process-exits
+style: my_default

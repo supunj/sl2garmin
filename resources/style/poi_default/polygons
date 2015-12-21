@@ -1,0 +1,2 @@
+include 'inc/name';
+include polygons from default;

@@ -1,0 +1,17 @@
+family-id: 6325
+product-id: 1
+keep-going
+draw-priority: 5
+transparent
+country-name: Sri_Lanka
+country-abbr: SL
+region-name: South_Asia
+region-abbr: SA
+family-name: Sri_Lanka_Contours
+area-name: Sri_Lanka
+code-page: 1252
+lower-case
+verbose
+remove-ovm-work-files
+no-tdbfile
+style: os50
