@@ -88,11 +88,13 @@ function cleanup()
 
 function prepare()
 {
-	rm -rf $IMG_LOC/*
-	rm -rf $TEMP_LOC/*
-  mkdir $TEMP_LOC/poi
-  mkdir $TEMP_LOC/typ
-	mkdir $IMG_LOC/mapset
+	rm -rf $IMG_LOC
+	rm -rf $TEMP_LOC
+  rm -rf $GPI_LOC
+  mkdir -p $GPI_LOC
+  mkdir -p $TEMP_LOC/poi
+  mkdir -p $TEMP_LOC/typ
+	mkdir -p $IMG_LOC/mapset
 }
 
 
