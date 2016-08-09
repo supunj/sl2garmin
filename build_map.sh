@@ -14,8 +14,8 @@ function pre_process()
 	#python3 $POLISH_MAP_PROCESSOR_FOR_MKGMAP/process_map/src/process_map.py $TEMP_LOC/temp0.mp $TEMP_LOC/temp1.mp 249
 	#PROCESSED_SOURCE_MAP=$TEMP_LOC/temp1.mp
 
-  cp $SOURCE_MAP_PBF $TEMP_LOC/sri-lanka-latest.osm.pbf
-  #./osm_to_pg.sh
+  #cp $SOURCE_MAP_PBF $TEMP_LOC/sri-lanka-latest.osm.pbf
+  ./osm_to_pg.sh
 
   # extract compressed maps
   echo 'Extracting large maps....'
@@ -115,6 +115,7 @@ echo 'Generating OSM map....'
 IMG_FILE_NAME="`shuf -i 10000000-99999999 -n 1`"
 #echo "$MKGMAP_JAVACMD $MKGMAP_JAVACMD_OPTIONS $MKGMAP -c $MAP_ROOT/transport_osm.args --description=OSM --mapname=$IMG_FILE_NAME --coastlinefile=$OSM_LOC/sri_lanka_coastline.osm --input-file=$PBF_LOC/sri-lanka-latest.osm.pbf" > $MAP_ROOT/command.txt
 $MKGMAP_JAVACMD $MKGMAP_JAVACMD_OPTIONS $MKGMAP -c $ARG_LOC/transport_osm.args --description=OSM --mapname=$IMG_FILE_NAME --style-file=$STYLE_LOC --input-file=$TEMP_LOC/sri-lanka-latest.osm.pbf
+#$MKGMAP_JAVACMD $MKGMAP_JAVACMD_OPTIONS $MKGMAP -c $ARG_LOC/transport_osm.args --description=OSM --mapname=$IMG_FILE_NAME --input-file=$TEMP_LOC/sri-lanka-latest.osm.pbf
 
 echo 'Generating POI map....'
 IMG_FILE_NAME="`shuf -i 10000000-99999999 -n 1`"
